@@ -7,6 +7,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
 * ### 對話陪伴
 * ### 情緒分析
 * ### 寵物互動
+  >本專案亦添加寵物互動元素讓使用者能有更多陪伴感。互動包含：拖曳、點擊、餵食等使用者可以進行的操作，也有寵物本身自動的動作如：跳躍、走動、搖擺等。而寵物也有自身的情緒，當使用者太久沒與寵物互動或與聊天機器人聊天會讓寵物的情緒越來低落，寵物表情亦會受到影響，以上設計目的是希望能展現活生生的表現以及讓使用者多多使用聊天陪伴功能，而不只是簡單的一個圖片。
 
 技術說明
 ----
@@ -26,7 +27,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >我們使用研鼎智能GoLife Care-X HR手環協助本專案偵測生理狀況，包含心跳、消耗卡路里、行走距離，以衡量長期活動量，進而評估其情緒狀態。將其公司所開發之SDK匯入Android檔案，應用於本專案當中。
 
 * ### 使用者介面
-  >本專案首頁之寵物互動為Unity開發，其餘以Android Studio開發。（將Unity相關之library import至Android檔案，並以aar檔案格式打包Unity開發內容。）Android以XML繪製Layout，Java編寫介面操作，其包含CardView、RecyclerView、Camera、PieChart等，並嵌入Open CV Module、Unity Library、GoLife Care SDK，結合多功能於使用者端，以Volley Library傳接資料，利用Gson於Java語言中接收來自php的Json格式的資料。
+  >本專案首頁及寵物互動介面為Unity開發，其餘以Android Studio開發。兩者結合方式為將Android Studio檔案設定為lib檔並打包為aar檔，再由Unity專案引入，最後以Unity匯出apk檔。Unity和Android Studio之間的溝通以static call方式進行參數傳遞、呼叫。Android以XML繪製Layout，Java編寫介面操作，其包含CardView、RecyclerView、Camera、PieChart等，並嵌入Open CV Module、Unity Library、GoLife Care SDK，結合多功能於使用者端，以Volley Library傳接資料，利用Gson於Java語言中接收來自php的Json格式的資料。
   
 
 環境設置
@@ -36,6 +37,8 @@ Demo Video: https://youtu.be/q21peUzfRBU
 * ### rule-based
 * ### face detection
 * ### android
+* ### unity
+  >Unity環境使用Unity 2.2.2版本
 
 補充說明
 ----
