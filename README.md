@@ -26,7 +26,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >我們使用研鼎智能GoLife Care-X HR手環協助本專案偵測生理狀況，包含心跳、消耗卡路里、行走距離，以衡量長期活動量，進而評估其情緒狀態。將其公司所開發之SDK匯入Android檔案，應用於本專案當中。
 
 * ### 使用者介面
-  >本專案首頁之寵物互動為Unity開發，其餘以Android Studio開發。（將Unity相關之library import至Android檔案，並以aar檔案格式打包Unity開發內容。）Android以XML繪製Layout，Java編寫介面操作，其包含CardView、RecyclerView、Camera、Chart等，並嵌入Open CV Module、Unity Library、GoLife Care SKD，結合多功能於使用者端，以Volley Library傳接資料，利用Gson於Java語言中接收來自php的Json格式的資料。
+  >本專案首頁之寵物互動為Unity開發，其餘以Android Studio開發。（將Unity相關之library import至Android檔案，並以aar檔案格式打包Unity開發內容。）Android以XML繪製Layout，Java編寫介面操作，其包含CardView、RecyclerView、Camera、Chart等，並嵌入Open CV Module、Unity Library、GoLife Care SDK，結合多功能於使用者端，以Volley Library傳接資料，利用Gson於Java語言中接收來自php的Json格式的資料。
   
 
 環境設置
