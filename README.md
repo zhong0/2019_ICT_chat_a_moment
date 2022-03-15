@@ -22,7 +22,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
 * ### Database
 * ### php
 * ### rule-based(python)
-* ### face emotion detection(python)
+* ### face detection(python)
 * ### Android Studio
 
 補充說明
