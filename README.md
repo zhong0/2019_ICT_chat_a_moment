@@ -23,7 +23,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
 * ### php
 * ### rule-based(python)
 * ### face detection(python)
-* ### Android Studio
+* ### android
 
 補充說明
 ----
