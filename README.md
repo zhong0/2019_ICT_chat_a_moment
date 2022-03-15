@@ -11,6 +11,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
 技術說明
 ----
 * ### 資料庫
+  >
 * ### 資料傳遞
 * ### 對話產生
 * ### 面部辨識
@@ -21,8 +22,8 @@ Demo Video: https://youtu.be/q21peUzfRBU
 ----
 * ### Database
 * ### php
-* ### rule-based(python)
-* ### face detection(python)
+* ### rule-based
+* ### face detection
 * ### android
 
 補充說明
