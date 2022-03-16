@@ -61,7 +61,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
   
   >指令：docker run -d -v ~/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
   
-  >環境：
+  >環境設定：
   >* docker cp Emotion-detection-master/ testTensorflow:/notebooks
   >* pip install opencv-python, keras==2.2.4
 
