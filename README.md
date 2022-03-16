@@ -7,7 +7,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
 * ### 對話陪伴
 * ### 情緒分析
 * ### 寵物互動
-  >本專案亦添加寵物互動元素讓使用者能有更多陪伴感。互動包含：拖曳、點擊、餵食等使用者可以進行的操作，也有寵物本身自動的動作如：跳躍、走動、搖擺等。而寵物也有自身的情緒，當使用者太久沒與寵物互動或與聊天機器人聊天會讓寵物的情緒越來低落，寵物表情亦會受到影響，以上設計目的是希望能展現活生生的表現以及讓使用者多多使用聊天陪伴功能，而不只是簡單的一個圖片。
+  >本專案亦添加寵物互動元素讓使用者能有更多陪伴感。互動包含：拖曳、點擊、餵食等使用者可以進行的操作，也有寵物本身自動的動作如：跳躍、走動、搖擺等。而寵物也有自身的情緒，當使用者太久沒與寵物互動或與聊天機器人聊天會讓寵物的情緒越來低落，寵物表情亦會受到影響，以上設計目的是希望能展現活生生的表現以及讓使用者多多使用聊天陪伴功能，以增加使用黏著性。
 
 技術說明
 ----
@@ -15,7 +15,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >使用NoSql資料庫，使其容納較多且複雜的資料格式，以Mongo DB官方釋出映像檔建立Docker於伺服器，依照指令建置資料庫。由於是非關連式資料庫，只需簡單設計欄位，例如量表問題、情緒初始分數等，作為新增使用者時，所產生的初始資料。
 
 * ### 資料傳遞
-  >以php作為靜態資料的傳遞，例如使用者身份、情緒長期分數等，並利用php-apache之映像檔建立Docker，作為對接窗口。Mongo DB指令編寫於php檔案中，並以POST接收Android端之資料，進而達成查詢、更新、刪除資料之操作。相關操作後，若要回傳至Android端，將資料包裝成Json格式，以echo回傳至Android端。此外，python作為即時資料的傳遞橋樑，例如面部、對話情緒辨識，並以含有python之映像檔建立Docker，接收使用端之資訊，進而更新資料庫資料。
+  >以php作為靜態資料的傳遞，例如使用者身份、情緒長期分數等，並利用php-apache之映像檔建立Docker，作為對接窗口。Mongo DB指令編寫於php檔案中，並以POST接收Android端之資料，進而達成查詢、更新、刪除資料之操作。相關操作後，若要回傳至Android端，將資料包裝成Json格式，以echo回傳至Android端。此外，python作為即時資料的傳遞橋樑，例如面部、對話情緒辨識，並以含有python之映像檔建立Docker，接收使用端之資訊，進而利用Socket方法連接並更新資料庫資料。
 
 * ### 對話辨識與產生
   >本專案有語音對話及文字對話，語音對話是利用Speech-to-Text API於Android Studio內轉換成文字，再進行文字辨識。在辨識語句的過程，利用python讀取Rule-based內容，其包含儲存Rule之txt檔及詞彙內容之xls檔，判斷該內容的核心事件，再以decision tree決策接下來的對話內容，其依照認知行為治療(Cognitive Behavior Therapy, CBT)程序推進對話的產生，而產生的過程也是利用Rule-based產生句子。在對話過程中，主要判斷事件、情緒、時間、對象，其中情緒會納入情緒分析之分數內。
@@ -33,8 +33,29 @@ Demo Video: https://youtu.be/q21peUzfRBU
 環境設置
 ----
 * ### Database
+  >本專案使用Ubuntu作業系統環境建立Docker，使用mongo官方映像檔，其資源庫及標籤名稱mongo:last，host port設定為28017，container port為其default port 27017。
+  
+  >指令：docker run -d -p 28017:27017 --name 28to27 mongo:latest
 * ### php
+  >在同一台伺服器中建立Docker，使用映像檔之資源庫及標籤名稱為php:5-apache，並連接到上述Docker，host port設定為8020，其為外部連進此Docker之port，container port設為80。接著安裝相關套件，將php檔案置入其中。
+  
+  >指令：docker run -d -p 8020:80 --link 28to27 --name php-mongo php:5-apache <br>
+
+  >環境設定：
+  >* apt-get install openssl libssl-dev libcurl4-openssl-dev
+  >* pecl install mongo
+  >* echo "extension=mongo.so" > /usr/local/etc/php/conf.d/mongo.ini
+
 * ### rule-based
+  >在建立新的Docker，使用映像檔之資源庫及標前名稱為php:5-apache，並連接到28to27 Docker，host port設定為7070，其為外部連進此Docker之port，container port設為8888。接著安裝python環境及相關套件，將rule-based之相關檔案置入其中。
+  
+  >指令：docker run -d -p 7070:8888 --link 28to27 --name connectPython php:5-apache
+
+  >環境設定：
+  >* apt-get install python3
+  >* apt-get install python3-pip
+  >* pip install requests, ckip-segamentor, pandas, pymongo, xlrd
+
 * ### face detection
 * ### android
 * ### unity
