@@ -82,3 +82,5 @@ Demo Video: https://youtu.be/q21peUzfRBU
 ----
 * ### document
   >document資料夾含有2019大專校院資訊應用服務創新競賽初賽文件、複賽海報及簡報，想知道更詳細內容可查看資料夾文件或是點選上述demo影片連結。
+* ### 未完全部分
+  >本專案經由測試後，seq2seq辨識及產生句子表現不佳，因此，最終只由rule-based方法進行對話功能。
