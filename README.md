@@ -75,8 +75,8 @@ Demo Video: https://youtu.be/q21peUzfRBU
 
 參考內容
 ----
-* ### face emotion detection
-  >Real-time Facial Emotion Detection using deep learning: https://github.com/atulapra/Emotion-detection.git
+* ### Real-time Facial Emotion Detection using deep learning
+  >link: https://github.com/atulapra/Emotion-detection.git
 
 補充說明
 ----
