@@ -59,16 +59,26 @@ Demo Video: https://youtu.be/q21peUzfRBU
 * ### face detection
   >建立新的Docker，使用映像檔之資源庫及標籤名稱為tensorflow/tensorflow:1.5.0-py3，host port設定為7072，其為外部連接port，container port設為8082，且把faceEmotionDockere綁定掛載，接著將Emotion-detection-master資料夾移至docker中，並安裝相關套件。
   
-  >指令：docker run -d -v ~/chiPi/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
+  >指令：docker run -d -v ~/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
   
   >環境：
   >* docker cp Emotion-detection-master/ testTensorflow:/notebooks
   >* pip install opencv-python, keras==2.2.4
 
 * ### android
+  >依照官方說明下載Android Studio，從Android Studio開啟本專案檔案，若電腦尚未下載Java需依照環境提示安裝，並同步Gradle，完成專案設定。目前本專案之雲端伺服器IP已關閉，因此，在傳接資料的網址，需更換成各自的伺服器IP。本專案設定gradle(Module:app)，minSdkVersion為23、targetSdkVersion為27。
+  
+  >注意：本專案只提供學術需求，若需要完整介面檔案，請傳送email至109753106@g.nccu.edu.tw，經評估後，將給予下載權限。
+  
 * ### unity
-  >Unity環境使用Unity 2.2.2版本
+  >Unity環境使用Unity 2.2.2版本。
+
+參考內容
+----
+* ### face emotion detection
+  >Real-time Facial Emotion Detection using deep learning: https://github.com/atulapra/Emotion-detection.git
 
 補充說明
 ----
 * ### document
+  >document資料夾含有2019大專校院資訊應用服務創新競賽初賽文件、複賽海報及簡報，想知道更詳細內容可查看資料夾文件或是點選上述demo影片連結。
