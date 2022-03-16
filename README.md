@@ -21,7 +21,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >本專案有語音對話及文字對話，語音對話是利用Speech-to-Text API於Android Studio內轉換成文字，再進行文字辨識。在辨識語句的過程，利用python讀取Rule-based內容，其包含儲存Rule之txt檔及詞彙內容之xls檔，判斷該內容的核心事件，再以decision tree決策接下來的對話內容，其依照認知行為治療(Cognitive Behavior Therapy, CBT)程序推進對話的產生，而產生的過程也是利用Rule-based產生句子。在對話過程中，主要判斷事件、情緒、時間、對象，其中情緒會納入情緒分析之分數內。
 
 * ### 面部情緒辨識
-  >將Open CV模組匯入Android檔案內，使用手機前置鏡頭擷取圖片回傳至Python模型達成面部情緒辨識，為壓縮圖檔大小及縮短辨識時間，我們將鏡頭所拍攝的彩色圖片，轉換成黑白圖片再做辨識。其功能於語音聊天過程當中，會不斷偵測當前情緒，並將偵測結果從Android傳至Python計算，最後回傳至Mongo DB紀錄。
+  >將Open CV模組匯入Android檔案內，使用手機前置鏡頭擷取圖片回傳至Python模型達成面部情緒辨識，為壓縮圖檔大小及縮短辨識時間，我們將鏡頭所拍攝的彩色圖片，轉換成黑白圖片再做辨識，模型以tensorflow建立。其功能於語音聊天過程當中，會不斷偵測當前情緒，並將偵測結果從Android傳至Python計算，最後回傳至Mongo DB紀錄。
 
 * ### 穿戴裝置
   >我們使用研鼎智能GoLife Care-X HR手環協助本專案偵測生理狀況，包含心跳、消耗卡路里、行走距離，以衡量長期活動量，進而評估其情緒狀態。將其公司所開發之SDK匯入Android檔案，應用於本專案當中。
@@ -47,7 +47,7 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >* echo "extension=mongo.so" > /usr/local/etc/php/conf.d/mongo.ini
 
 * ### rule-based
-  >在建立新的Docker，使用映像檔之資源庫及標前名稱為php:5-apache，並連接到28to27 Docker，host port設定為7070，其為外部連進此Docker之port，container port設為8888。接著安裝python環境及相關套件，將rule-based之相關檔案置入其中。
+  >建立新的Docker，使用映像檔之資源庫及標籤名稱為php:5-apache，並連接到28to27 Docker，host port設定為7070，其為外部連接port，container port設為8888。接著安裝python環境及相關套件，將rule-based之相關檔案置入其中。
   
   >指令：docker run -d -p 7070:8888 --link 28to27 --name connectPython php:5-apache
 
@@ -57,6 +57,12 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >* pip install requests, ckip-segamentor, pandas, pymongo, xlrd
 
 * ### face detection
+  >建立新的Docker，使用映像檔之資源庫及標籤名稱為tensorflow/tensorflow:1.5.0-py3，host port設定為7072，其為外部連接port，container port設為8082，且把內外部資料夾綁在一起。將Emotion-detection-master資料夾移至docker中，並安裝相關套件。
+  
+  >指令：
+  
+  >環境
+
 * ### android
 * ### unity
   >Unity環境使用Unity 2.2.2版本
