@@ -57,11 +57,13 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >* pip install requests, ckip-segamentor, pandas, pymongo, xlrd
 
 * ### face detection
-  >建立新的Docker，使用映像檔之資源庫及標籤名稱為tensorflow/tensorflow:1.5.0-py3，host port設定為7072，其為外部連接port，container port設為8082，且把內外部資料夾綁在一起。將Emotion-detection-master資料夾移至docker中，並安裝相關套件。
+  >建立新的Docker，使用映像檔之資源庫及標籤名稱為tensorflow/tensorflow:1.5.0-py3，host port設定為7072，其為外部連接port，container port設為8082，且把faceEmotionDockere綁定掛載，接著將Emotion-detection-master資料夾移至docker中，並安裝相關套件。
   
-  >指令：
+  >指令：docker run -d -v ~/chiPi/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
   
-  >環境
+  >環境：
+  >* docker cp Emotion-detection-master/ testTensorflow:/notebooks
+  >* pip install opencv-python, keras==2.2.4
 
 * ### android
 * ### unity
