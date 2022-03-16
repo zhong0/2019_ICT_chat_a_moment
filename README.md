@@ -71,13 +71,15 @@ Demo Video: https://youtu.be/q21peUzfRBU
   >* docker cp Emotion-detection-master/ testTensorflow:/notebooks
   >* pip install opencv-python, keras==2.2.4
 
+* ### unity
+  >Unity環境使用Unity 2.2.2版本。
+
 * ### android
   >依照官方說明下載Android Studio，從Android Studio開啟本專案檔案，若電腦尚未下載Java需依照環境提示安裝，並同步Gradle，完成專案設定。目前本專案之雲端伺服器IP已關閉，因此，在傳接資料的網址，需更換成各自的伺服器IP。本專案設定gradle(Module:app)，minSdkVersion為23、targetSdkVersion為27。
   
   >注意：本專案只提供學術需求，若需要完整介面檔案，請傳送email至109753106@g.nccu.edu.tw，經評估後，將給予下載權限。
   
-* ### unity
-  >Unity環境使用Unity 2.2.2版本。
+
 
 參考內容
 ----
