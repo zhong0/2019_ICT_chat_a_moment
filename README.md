@@ -38,44 +38,47 @@ Techniques
 
 Environment
 ----
-* ### Database
-  >本專案使用Ubuntu作業系統環境建立Docker，使用mongo官方映像檔，其資源庫及標籤名稱mongo:last，host port設定為28017，container port為其default port 27017。
+* ### database
+  >We ran the Docker on Ubuntu os environment. The image file was released by Mongo DB official. Its repository with the tag is mongo:last. The host port was set as 28017, and the container port was defalut port 27017.
   
-  >指令：docker run -d -p 28017:27017 --name 28to27 mongo:latest
+  >Command：docker run -d -p 28017:27017 --name 28to27 mongo:latest
+
 * ### php
   >在同一台伺服器中建立Docker，使用映像檔之資源庫及標籤名稱為php:5-apache，並連接到上述Docker，host port設定為8020，其為外部連進此Docker之port，container port設為80。接著安裝相關套件，將php檔案置入其中。
+  >Create another Docker in the same server. The repository with the tag of the image is php:5-apache. Then, it should link to the above Docker. The host port was set as 8020, and the container port was 80. It's necessary to install related packages, and make the php files in it.
   
-  >指令：docker run -d -p 8020:80 --link 28to27 --name php-mongo php:5-apache <br>
+  >Command：docker run -d -p 8020:80 --link 28to27 --name php-mongo php:5-apache <br>
 
-  >環境設定：
+  >Environment Setting：
   >* apt-get install openssl libssl-dev libcurl4-openssl-dev
   >* pecl install mongo
   >* echo "extension=mongo.so" > /usr/local/etc/php/conf.d/mongo.ini
 
 * ### rule-based
-  >建立新的Docker，使用映像檔之資源庫及標籤名稱為php:5-apache，並連接到28to27 Docker，host port設定為7070，其為外部連接port，container port設為8888。接著安裝python環境及相關套件，將rule-based之相關檔案置入其中。
+  >Build a new Docker. Also, The repository with the tag of the image is php:5-apache. Then, it also link to 28to27 Docker. The host port was set as 7070, which was avaliable to let external network connect, and the container port was 8888. It's necessary to install Python environment and other packages, and make the rule-based files in it.
   
-  >指令：docker run -d -p 7070:8888 --link 28to27 --name connectPython php:5-apache
+  >Command：docker run -d -p 7070:8888 --link 28to27 --name connectPython php:5-apache
 
-  >環境設定：
+  >Environment Setting：
   >* apt-get install python3
   >* apt-get install python3-pip
   >* pip install requests, ckip-segamentor, pandas, pymongo, xlrd
 
 * ### face detection
-  >建立新的Docker，使用映像檔之資源庫及標籤名稱為tensorflow/tensorflow:1.5.0-py3，host port設定為7072，其為外部連接port，container port設為8082，且把faceEmotionDockere綁定掛載，接著將Emotion-detection-master資料夾移至docker中，並安裝相關套件。
+  >Build a new Docker. The repository with the tag of the image is tensorflow/tensorflow:1.5.0-py3. The host port was set as 7072, which was avaliable to let external network connect, and the container port was 8082. Then, we binded the faceEmotionDockere file to the Docker, and moved the Emotion-detection-master to the Docker. It's also necessary to install the related packages.
   
-  >指令：docker run -d -v ~/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
+  >Command：docker run -d -v ~/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
   
-  >環境設定：
+  >Environment Setting：
   >* docker cp Emotion-detection-master/ testTensorflow:/notebooks
   >* pip install opencv-python, keras==2.2.4
 
 * ### unity
-  >Unity環境使用Unity 2.2.2版本。
+  >The version of Unity is 2.2.2.
 
 * ### android
   >依照官方說明下載Android Studio，從Android Studio開啟本專案檔案，若電腦尚未下載Java需依照環境提示安裝，並同步Gradle，完成專案設定。目前本專案之雲端伺服器IP已關閉，因此，在傳接資料的網址，需更換成各自的伺服器IP。本專案設定gradle(Module:app)，minSdkVersion為23、targetSdkVersion為27。
+  >
   
   >注意：本專案只提供學術需求，若需要完整介面檔案，請傳送email至109753106@g.nccu.edu.tw，經評估後，將給予下載權限。
   
