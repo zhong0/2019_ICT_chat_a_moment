@@ -44,7 +44,6 @@ Environment
   >Command：docker run -d -p 28017:27017 --name 28to27 mongo:latest
 
 * ### php
-  >在同一台伺服器中建立Docker，使用映像檔之資源庫及標籤名稱為php:5-apache，並連接到上述Docker，host port設定為8020，其為外部連進此Docker之port，container port設為80。接著安裝相關套件，將php檔案置入其中。
   >Create another Docker in the same server. The repository with the tag of the image is php:5-apache. Then, it should link to the above Docker. The host port was set as 8020, and the container port was 80. It's necessary to install related packages, and make the php files in it.
   
   >Command：docker run -d -p 8020:80 --link 28to27 --name php-mongo php:5-apache <br>
@@ -77,21 +76,18 @@ Environment
   >The version of Unity is 2.2.2.
 
 * ### android
-  >依照官方說明下載Android Studio，從Android Studio開啟本專案檔案，若電腦尚未下載Java需依照環境提示安裝，並同步Gradle，完成專案設定。目前本專案之雲端伺服器IP已關閉，因此，在傳接資料的網址，需更換成各自的伺服器IP。本專案設定gradle(Module:app)，minSdkVersion為23、targetSdkVersion為27。
-  >
+  >Download Android Studio first according to the official document, and open our project files from Android Studio. If your pc doesn't contain Java environment, you need to follow the hints to download it. Also, you should synchronous the gradle file with our project. Our server is closed. Therefore, you should modified all the IP links in the projects to your own settings. The setting of minSdkVersion is 23 and targetSdkVersion is 27 in our project.
   
-  >注意：本專案只提供學術需求，若需要完整介面檔案，請傳送email至109753106@g.nccu.edu.tw，經評估後，將給予下載權限。
-  
+  >Notification: Our project only provides to academic needs. If you need to download the user interface file, please feel free to contact us via send the e-mail to 109753106@g.nccu.edu.tw. We would authorize the access after estimating.
 
-
-Supplement
+Reference
 ----
 * ### Real-time Facial Emotion Detection using deep learning
   >link: https://github.com/atulapra/Emotion-detection.git
 
-補充說明
+Supplement
 ----
 * ### document
-  >document資料夾含有2019大專校院資訊應用服務創新競賽初賽文件、複賽海報及簡報，想知道更詳細內容可查看資料夾文件或是點選上述demo影片連結。
-* ### 未完成部分
-  >本專案經由測試後，seq2seq辨識及產生句子表現不佳，因此，最終只由rule-based方法進行對話功能。
+  >The document file contains the introduction document for the preliminary contest of International ICT Innovative Services Awards 2019. Also, the poster and presentation ppt for finals are attached. All the documents are written in Chinese. If you want to understand our systems work in details, you can access the demo video via above link.
+* ### Uncompleted Part
+  >After implement, we found it was worse to detect and generate utterances with seq2seq method. Therefore, the system only conducts the conversation function with rule-based methods.
