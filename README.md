@@ -9,21 +9,20 @@ Introduction
 * ### Chat for Accompanyding
   >Our project is aim to let user pour out their emotion anytime. Users not only can understand their emotion codition but also obtain the sense of relief. However, we designed the chatting framework based on conitive behavior therapy (CBT). The chatbot would gradully figure out the user's emotion and thought for the events that they had been occurred. Moreover, the chatbot will automatically detect and record the details, such as the event, time, emotion, the relationship. The user can review their codition in the future.
 
-* ### 情緒分析
-  >情緒分析分為短期追蹤及長期追蹤，短期追蹤為在聊天過程當中偵測開心、難過、憤怒、恐懼、厭惡五大情緒字眼，又因複雜情緒於文字聊天不易解讀，所以，開發語音功能搭配前置鏡頭進行面部情緒偵測，最終統整結果以圓餅圖呈現給使用者查看；長期追蹤則有焦慮傾向、憂鬱傾向數值顯現，在聊天過程當中，除了會偵測情緒字眼、負向扭曲言論之外，也會不時提出焦慮、憂鬱量表內容，追蹤使用者狀況，並利用手環生理偵測，以長期追蹤心跳、卡路里、行走距離數據，同步於本系統當中，協助完成情緒分析。
-  >There'are short-term and long-term tracking of emotion analysis. During the chatting, the chatbot would detect the keywords of five emotion, happiness, sadness, anger, fear, disgust, as the short-term tracking. Since it's hard to understand the complicated emotion in text, we developed the voice chatting fuction using the front camera on mobile phone to detect the emotion on face. The result will show with pie chart to users. Hoever, the long-term tracking contains anxious and depression tendency. In addition to detecing keywords of emotion and extremely negative  
+* ### Emotion Analysis
+  >There'are short-term and long-term tracking of emotion analysis. During the chatting, the chatbot would detect the keywords of five emotion, happiness, sadness, anger, fear, disgust, as the short-term tracking. Since it's hard to understand the complicated emotion in text, we developed the voice chatting fuction using the front camera on mobile phone to detect the emotion on face. The result will show with pie chart to users. However, the long-term tracking contains anxious and depression tendency. In addition to detecing keywords of emotion and extremely negative utterances, the anxious and depression scale quesion will be appearing during chatting. Moreover, our system combined the wristband to our system to detect pysical codition, such as heart rate, calories, walk distance and step. Based on these information, the system can track the long-term situation completely. 
 
-* ### 寵物互動
-  >本專案亦添加寵物互動元素讓使用者能有更多陪伴感。互動包含：拖曳、點擊、餵食等使用者可以進行的操作，也有寵物本身自動的動作如：跳躍、走動、搖擺等。而寵物也有自身的情緒，當使用者太久沒與寵物互動或與聊天機器人聊天會讓寵物的情緒越來低落，寵物表情亦會受到影響，以上設計目的是希望能展現活生生的表現以及讓使用者多多使用聊天陪伴功能，以增加使用黏著性。
+* ### Virtual Pet Interaction
+  >Our system designed a virtual pet to enhance the sense of accompanying. The interaction operation contains dragging, clicking, fedding, and so on. The virtual pet has the action as if the people, such as jumping, walking, swagging, etc. Moreover, it has its own emotion. When the user hasn't interacted with it for a long time, the virtual pet will be more and more depression, and can be recognized on its face. These designs are aim to let the chatbot to reflect the emotion similar to people and expect user to increasing the usage of our system.
 
 Techniques
 ----
-* ### 資料庫
-  >使用NoSql資料庫，使其容納較多且複雜的資料格式，以Mongo DB官方釋出映像檔建立Docker於伺服器，依照指令建置資料庫。由於是非關連式資料庫，只需簡單設計欄位，例如量表問題、情緒初始分數等，作為新增使用者時，所產生的初始資料。
+* ### Data
+  >Our system is based on NoSQL database, which have the capability to contain more complicated data fromat and much data. According to the official document of Mongo DB, we ran a Docker with the official image in the server, and follow the commands to establish database. Owing to un-relational database, we just need to simply design the columns, such as scale question, initial score of emotion, etc., as the initial data when adding the new user.
 
-* ### 資料傳遞
-  >以php作為靜態資料的傳遞，例如使用者身份、情緒長期分數等，並利用php-apache之映像檔建立Docker，作為對接窗口。Mongo DB指令編寫於php檔案中，並以POST接收Android端之資料，進而達成查詢、更新、刪除資料之操作。相關操作後，若要回傳至Android端，將資料包裝成Json格式，以echo回傳至Android端。此外，python作為即時資料的傳遞橋樑，例如面部、對話情緒辨識，並以含有python環境的Docker，接收使用端的資訊，進而利用Socket方法連接並更新資料庫資料。
-
+* ### Data Passing
+  >The php file is used as the static data passing, such as user informationo, long-term emotion score, and so on. We ran another Docker with php-apache image to do the data passing. The Mongo DB commands were written in the php files. The php files used the POST method to receive the data from the Android side to achieve the operation like query, update, delete. If there's a value need to send back to Android, it will pack the data to Json format and return it with echo command. However, Python was doing the instant data passing, such as face detection, utterance emotion detection. Therefore, there's another Docker with Python to receive the information of user side. It helped to connect to database and update the data with Socket method.
+ 
 * ### 對話辨識與產生
   >本專案有語音對話及文字對話，語音對話是利用Speech-to-Text API於Android Studio內轉換成文字，再進行文字辨識。在辨識語句的過程，利用python讀取Rule-based內容，其包含儲存Rule之txt檔及詞彙內容之xls檔，判斷該內容的核心事件，再以decision tree決策接下來的對話內容，其依照CBT程序推進對話的產生，而產生的過程也是利用Rule-based產生句子。在對話過程中，主要判斷事件、情緒、時間、對象，其中情緒會納入情緒分析之分數內。
 
