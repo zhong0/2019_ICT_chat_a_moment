@@ -82,7 +82,7 @@ Environment
 Reference
 ----
 * ### Real-time Facial Emotion Detection using deep learning
-  >link: https://github.com/atulapra/Emotion-detection.git
+  >https://github.com/atulapra/Emotion-detection.git
 
 Supplement
 ----
