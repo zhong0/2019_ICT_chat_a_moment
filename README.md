@@ -77,7 +77,7 @@ Environment
 * ### android
   >Download Android Studio first according to the official document, and open our project files from Android Studio. If your pc doesn't contain Java environment, you need to follow the hints to download it. Also, you should synchronous the gradle file with our project. Our server is closed. Therefore, you should modify all the IP links in the projects to your own settings. The setting of minSdkVersion is 23 and targetSdkVersion is 27 in our project.
   
-  >Notification: Our project only provides to academic needs. If you need to download the user interface file, please feel free to contact us via send the e-mail to 109753106@g.nccu.edu.tw. We would authorize the access after estimating.
+  >Notification: Our project only provides to academic needs. If you need to download the user interface file, please feel free to contact us via the e-mail 109753106@g.nccu.edu.tw. We would authorize the access after an assessment.
 
 Reference
 ----
