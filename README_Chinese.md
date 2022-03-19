@@ -1,6 +1,6 @@
 # 療一下－聊天陪伴檢測心靈AI
 
-Demo Video: https://youtu.be/q21peUzfRBU
+介紹影片: https://youtu.be/q21peUzfRBU
 * 2019大專校院資訊應用服務創新競賽佳作：資訊應用組
 * 2019大專校院資訊應用服務創新競賽入圍：AWS雲端科技趨勢應用組
 
