@@ -75,7 +75,7 @@ Environment
   >Download Unity with the version 2.2.2 on official website.
 
 * ### android
-  >Download Android Studio first according to the official document, and open our project files by Android Studio. If your pc doesn't contain Java environment, you can follow the hints from official website to download it. Also, you should synchronize the gradle file with our project. Unfortunately, Our server is closed. Therefore, you should modify all the IP links in the projects to your own settings. The setting of minSdkVersion is 23 and targetSdkVersion is 27 in our project.
+  >Download Android Studio first according to the official document, and open our project files by Android Studio. If your pc doesn't contain Java environment, you should follow the hints from Android Studio environment to download it. Also, you should synchronize the gradle file with our project. Unfortunately, Our server is closed. Therefore, you should modify all the IP links in the projects to your own settings. The setting of minSdkVersion is 23 and targetSdkVersion is 27 in our project.
   
   >Notification: Our project only provides to academic purpose. If you need to download the user interface file, please feel free to contact us via the e-mail 109753106@g.nccu.edu.tw. We would authorize the access after an assessment.
 
