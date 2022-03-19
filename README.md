@@ -53,7 +53,7 @@ Environment
   >* echo "extension=mongo.so" > /usr/local/etc/php/conf.d/mongo.ini
 
 * ### rule-based
-  >Build a new docker container. The repository with the tag of the image is also php:5-apache. Then, it also needs to link to 28to27 Docker container. The host port was set as 7070, which was available to let external network connect, and the container port was 8888. It's necessary to install Python environment and other packages, and move the rule-based files to it.
+  >Build a new docker container. The repository with the tag of the image is also php:5-apache. Then, it also needs to link to 28to27 docker container. The host port was set as 7070, which was available to let external network connect, and the container port was 8888. It's necessary to install Python environment and other packages, and move the rule-based files to it.
   
   >Command：docker run -d -p 7070:8888 --link 28to27 --name connectPython php:5-apache
 
