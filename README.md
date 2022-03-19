@@ -63,7 +63,7 @@ Environment
   >* pip install requests, ckip-segamentor, pandas, pymongo, xlrd
 
 * ### face detection
-  >Build a new docker container. The repository with the tag of the image is tensorflow/tensorflow:1.5.0-py3. The host port was set as 7072, which was available to let external network connect, and the container port was 8082. Then, we mount the faceEmotionDockere dictionary to the Docker container, and moved the Emotion-detection-master to the Docker container. It's also necessary to install the related packages.
+  >Build a new docker container. The repository with the tag of the image is tensorflow/tensorflow:1.5.0-py3. The host port was set as 7072, which was available to let external network connect, and the container port was 8082. Then, we mount the faceEmotionDockere dictionary to the docker container, and moved the Emotion-detection-master to the Docker container. It's also necessary to install the related packages.
   
   >Command：docker run -d -v ~/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
   
