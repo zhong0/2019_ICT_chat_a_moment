@@ -43,7 +43,7 @@ Environment
   >Command：docker run -d -p 28017:27017 --name 28to27 mongo:latest
 
 * ### php
-  >Create another docker container in the same server. The repository with the tag of the image is php:5-apache. Then, link to the above Docker. The host port was set as 8020, and the container port was 80. It's necessary to install related packages, and make the php files in it.
+  >Create another docker container in the same server. The repository with the tag of the image is php:5-apache. Then, link to the above docker. The host port was set as 8020, and the container port was 80. It's necessary to install related packages, and make the php files in it.
   
   >Command：docker run -d -p 8020:80 --link 28to27 --name php-mongo php:5-apache <br>
 
