@@ -38,12 +38,12 @@ Techniques
 Environment
 ----
 * ### database
-  >We ran the Docker on Ubuntu os. The image was released by Mongo DB official. Its repository with the tag is mongo:last. The host port was set as 28017, and the container port was default port 27017.
+  >We ran the docker on Ubuntu os. The image was released by Mongo DB official. Its repository with the tag is mongo:last. The host port was set as 28017, and the container port was default port 27017.
   
   >Command：docker run -d -p 28017:27017 --name 28to27 mongo:latest
 
 * ### php
-  >Create another Docker container in the same server. The repository with the tag of the image is php:5-apache. Then, link to the above Docker. The host port was set as 8020, and the container port was 80. It's necessary to install related packages, and make the php files in it.
+  >Create another docker container in the same server. The repository with the tag of the image is php:5-apache. Then, link to the above Docker. The host port was set as 8020, and the container port was 80. It's necessary to install related packages, and make the php files in it.
   
   >Command：docker run -d -p 8020:80 --link 28to27 --name php-mongo php:5-apache <br>
 
@@ -53,7 +53,7 @@ Environment
   >* echo "extension=mongo.so" > /usr/local/etc/php/conf.d/mongo.ini
 
 * ### rule-based
-  >Build a new Docker container. The repository with the tag of the image is also php:5-apache. Then, it also needs to link to 28to27 Docker container. The host port was set as 7070, which was available to let external network connect, and the container port was 8888. It's necessary to install Python environment and other packages, and move the rule-based files to it.
+  >Build a new docker container. The repository with the tag of the image is also php:5-apache. Then, it also needs to link to 28to27 Docker container. The host port was set as 7070, which was available to let external network connect, and the container port was 8888. It's necessary to install Python environment and other packages, and move the rule-based files to it.
   
   >Command：docker run -d -p 7070:8888 --link 28to27 --name connectPython php:5-apache
 
@@ -63,7 +63,7 @@ Environment
   >* pip install requests, ckip-segamentor, pandas, pymongo, xlrd
 
 * ### face detection
-  >Build a new Docker container. The repository with the tag of the image is tensorflow/tensorflow:1.5.0-py3. The host port was set as 7072, which was available to let external network connect, and the container port was 8082. Then, we mount the faceEmotionDockere dictionary to the Docker container, and moved the Emotion-detection-master to the Docker container. It's also necessary to install the related packages.
+  >Build a new docker container. The repository with the tag of the image is tensorflow/tensorflow:1.5.0-py3. The host port was set as 7072, which was available to let external network connect, and the container port was 8082. Then, we mount the faceEmotionDockere dictionary to the Docker container, and moved the Emotion-detection-master to the Docker container. It's also necessary to install the related packages.
   
   >Command：docker run -d -v ~/faceEmotionDocker:/notebooks/faceEmoOnD -p 7072:8082 --name testTensorflow tensorflow/tensorflow:1.5.0-py3
   
