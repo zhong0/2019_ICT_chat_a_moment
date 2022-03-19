@@ -1,6 +1,6 @@
 # An AI Chatbot of Mental Analysis and Accompanying
 
-Demo Video: https://youtu.be/q21peUzfRBU
+Video: https://youtu.be/q21peUzfRBU
 * International ICT Innovative Services Awards 2019 (IP Group) - Excellent work
 * International ICT Innovative Services Awards 2019 (AWS Group) - Nominated
 
