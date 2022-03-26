@@ -1,6 +1,6 @@
 # An AI Chatbot of Mental Analysis and Accompanying
 
-Video: https://youtu.be/q21peUzfRBU
+Introduction video: https://youtu.be/q21peUzfRBU
 * International ICT Innovative Services Awards 2019 (IP Group) - Excellent work
 * International ICT Innovative Services Awards 2019 (AWS Group) - Nominated
 
@@ -87,7 +87,7 @@ Reference
 Supplement
 ----
 * ### Document
-  >The document file contains the introduction document for the preliminary contest of International ICT Innovative Services Awards 2019. Also, the poster and presentation ppt for finals are attached. All the documents are written in Chinese. If you want to understand our systems work in details, you can access the demo video via above link.
+  >The document file contains the introduction document for the preliminary contest of International ICT Innovative Services Awards 2019. Also, the poster and presentation ppt for finals are attached. All the documents are written in Chinese. If you want to understand our systems work in details, you can access the video via above link.
 
 * ### Uncompleted Part
   >After implement, we found it is hard to detect and generate utterances well with seq2seq method. Therefore, we only release the conversation function with rule-based methods.
